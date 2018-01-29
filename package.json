@@ -1,0 +1,26 @@
+{
+  "name": "simple-test-automation",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "cron": "node ./cron.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "cron": "^1.3.0",
+    "debug": "~2.6.9",
+    "electron": "^1.7.11",
+    "express": "~4.15.5",
+    "express-validator": "^4.3.0",
+    "mongoose": "^5.0.1",
+    "morgan": "~1.9.0",
+    "nightmare": "^2.10.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

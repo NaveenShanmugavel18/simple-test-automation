@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	h1= title
+	div
+		table.table
+			thead
+				tr
+					th Title
+					th Status
+					th Command
+					th Created Time
+			tbody
+				each test, i in testCase
+					tr
+						td #{test.title}
+						td #{test.status}
+						td #{test.command}
+						td #{test.createdAt}
