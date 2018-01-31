@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	h2= title
+	title #{title}
+	form.form-validation
+		.form-group
+			label(for='title') Title:
+			input#title.form-control(name='title', type='text', placeholder='title', value=`${testCase[0].title}`)
+		.form-group
+			label(for='command') Command:
+			textarea#command.form-control(name='command', rows='5', placeholder='command') #{testCase[0].command}
+		input.btn.btn-info.submit-button.submit(type="submit" data-url=`${testCase[0]._id}` value='submit')
+	button.btn.btn-danger.pull-right.cancel-button(type="button") Cancel

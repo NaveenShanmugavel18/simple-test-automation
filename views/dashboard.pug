@@ -1,15 +1,28 @@
 extends layout
 
 block content
-	h1= title
+	h2= title
+		button.pull-right.btn.btn-info.add-test-button(type="button") Add Testcase
+	title #{title}
 	div
-		table.table
+		form#form.form-validation.hide
+			.form-group
+				label(for='title') Title:
+				input#title.form-control(name='title', type='text', placeholder='title')
+			.form-group
+				label(for='command') Command:
+				textarea#command.form-control(name='command', rows='5', placeholder='command')
+			button.btn.btn-info.submit-button(type="button") Submit Test Case
+			button.btn.btn-danger.pull-right.cancel-test-button(type="button") Cancel
+	div#table
+		table.table.table-bordered.table-responsive
 			thead
-				tr
+				tr.info
 					th Title
 					th Status
 					th Command
 					th Created Time
+					th Options
 			tbody
 				each test, i in testCase
 					tr
@@ -17,3 +30,8 @@ block content
 						td #{test.status}
 						td #{test.command}
 						td #{test.createdAt}
+						td
+							if (!test.status)
+								button.btn.btn-danger.edit-button(type="button" class data-url=`${test._id}`) Edit
+							else
+								b Cron Completed

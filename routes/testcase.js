@@ -8,12 +8,26 @@ var helper = require('../helpers/helper');
 router.get('/getTestCases', (req, res, next) => {
 	testCaseModel.find({}, (err, testCase) => {
 		if (err)
-			res.status(400).send(errors);
-		/*res.render('dashboard', { 
+			res.status(400).send(err);
+		res.render('dashboard', { 
 			title: 'Dashboard',
 			testCase: testCase
-		});*/
-		res.status(200).send(testCase);
+		});
+		// res.status(200).send(testCase);
+	}).sort('-createdAt');
+});
+
+/* Get test case by ID */
+
+router.get('/getTestCases/:id', (req, res, next) => {
+	testCaseModel.find({_id:`${req.params.id}`}, (err, testCase) => {
+		if (err)
+			return res.status(400).send(err);
+		res.render('individualtest', { 
+			title: 'Edit Individual Test Case',
+			testCase: testCase
+		});
+		// res.status(200).send(testCase);
 	});
 });
 
